@@ -345,6 +345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7802710348390361554, guid: 30acd1402da46fe40b9587ce27d36bc7, type: 3}
+  countdown: 3
+  timeBetweenSpawnEnemy: 1
 --- !u!1 &23133782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,6 +5418,84 @@ MonoBehaviour:
   nodePrefab: {fileID: 0}
   planePrefab: {fileID: 0}
   nodeParent: {fileID: 0}
+--- !u!1001 &1815889012969123786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2229015960522937226, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_Name
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.5005336
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.4944496
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2229015960522937226, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815889012969123788}
+  m_SourcePrefab: {fileID: 100100000, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+--- !u!1 &1815889012969123787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2229015960522937226, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+  m_PrefabInstance: {fileID: 1815889012969123786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1815889012969123788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815889012969123787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1223b3404fbbc9747a34e59fc3ca3ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
 --- !u!1001 &7218781597816483452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5424,13 +5504,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8976948901586690534, guid: 30acd1402da46fe40b9587ce27d36bc7, type: 3}
+    - target: {fileID: -786247185545657622, guid: 30acd1402da46fe40b9587ce27d36bc7, type: 3}
       propertyPath: agent
       value: 
       objectReference: {fileID: 1296336380}
     - target: {fileID: 4591109509727708610, guid: 30acd1402da46fe40b9587ce27d36bc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4591109509727708610, guid: 30acd1402da46fe40b9587ce27d36bc7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5490,3 +5570,4 @@ SceneRoots:
   - {fileID: 20377956}
   - {fileID: 1620538828}
   - {fileID: 7218781597816483452}
+  - {fileID: 1815889012969123786}
