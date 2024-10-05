@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1f, 2f);
+        //InvokeRepeating("SpawnEnemy", 1f, 2f);
         StartCoroutine(SpawnWave());
     }
 
