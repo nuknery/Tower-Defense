@@ -5496,6 +5496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 0
+  bulletPrefab: {fileID: 0}
+  gunBarrel: []
+  rechargeTime: 0
 --- !u!1001 &7218781597816483452
 PrefabInstance:
   m_ObjectHideFlags: 0

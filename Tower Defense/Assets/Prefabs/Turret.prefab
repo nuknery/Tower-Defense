@@ -194,6 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 2.4
+  bulletPrefab: {fileID: 6460948090066209680, guid: afd2c2d6713e4b042ab951e16ff8963d, type: 3}
+  gunBarrel:
+  - {fileID: 5673317239131024376}
+  - {fileID: 4830334762105901314}
+  rechargeTime: 1
 --- !u!135 &3397260663145744755
 SphereCollider:
   m_ObjectHideFlags: 0

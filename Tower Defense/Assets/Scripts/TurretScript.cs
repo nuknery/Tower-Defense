@@ -9,13 +9,14 @@ public class TurretScript : MonoBehaviour
     [SerializeField]
     private float range = 2f;
 
-    [Header("Bullet settings")]
+    [Header("Shoot settings")]
     [SerializeField] 
     private GameObject bulletPrefab;
     [SerializeField]
     private Transform[] gunBarrel;
     [SerializeField]
     private float rechargeTime;
+    private int currentBarrelIndex = 0;
 
     private List<Transform> targetsInRange = new List<Transform>();
 
@@ -35,26 +36,28 @@ public class TurretScript : MonoBehaviour
         if (target != null)
         {
             transform.LookAt(target);
+            StartCoroutine(Shoot(currentBarrelIndex));
         }
     }
 
     private Transform FindTarget()
     {
         if (targetsInRange == null) return null;
-        Transform newTarget = targetsInRange.First();
 
         RemoveNullObjects();
+
+        Transform newTarget = targetsInRange.First();
+    
         foreach (Transform t in targetsInRange)
         {
-            if(t == null)
-            {
-                targetsInRange.Remove(t);
-            }
             float distanceToEnemy = Vector3.Distance(transform.position, t.position);
             float distanceToPrevEnemy = Vector3.Distance(transform.position, newTarget.position);
             if (distanceToEnemy < distanceToPrevEnemy)
             {
+                StopCoroutine(Shoot());
+                StartCoroutine(Shoot());
                 newTarget = t;
+
             }
         }
         return newTarget;
@@ -76,11 +79,35 @@ public class TurretScript : MonoBehaviour
         }
     }
 
+    private IEnumerator Shoot()
+    {
+        while (target != null)
+        {
+            yield return new WaitForSeconds(rechargeTime);
+
+            GameObject bullet = Instantiate(bulletPrefab, gunBarrel[currentBarrelIndex]);
+            bulletPrefab.transform.parent = null;
+
+            BulletScript bulletScript = bullet.GetComponent<bulletScript>();
+            bulletScript.Target = target;
+
+            currentBarrelIndex++;
+            if (currentBarrelIndex == gunBarrel.Length)
+            {
+                currentBarrelIndex = 0;
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Enemy")
         {
             targetsInRange.Add(col.transform);
+            if (target == null)
+            {
+                StartCoroutine(Shoot());
+            }
         }
     }
 
