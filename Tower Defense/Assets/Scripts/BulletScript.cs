@@ -5,9 +5,11 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     [SerializeField]
-    private RigidBody rb;
+    private Rigidbody rb;
 
-    private float speed = 2f;
+    private float speed = 10f;
+
+    private int damage = 10;
 
     private Transform target;
 
@@ -17,6 +19,7 @@ public class BulletScript : MonoBehaviour
         {
             target = value;
             TakeForce(target);
+            transform.LookAt(target);
         }
     }
 
@@ -27,14 +30,8 @@ public class BulletScript : MonoBehaviour
 
     private void Update()
     {
-        
-    }
 
-    /*public void SetTarget(Transform newTarget)
-    {
-        target = newTarget;
-        TakeForce(target);
-    }*/
+    }
 
     public void TakeForce(Transform target)
     {
@@ -46,6 +43,7 @@ public class BulletScript : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
+            //col.Componenet<Enemy>().GetDamage(damage);
             Destroy(gameObject);
         }
     }

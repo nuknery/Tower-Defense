@@ -8,6 +8,7 @@ public class TurretScript : MonoBehaviour
     private Transform target;
     [SerializeField]
     private float range = 2f;
+    private float turnSpeed = 10f;
 
     [Header("Shoot settings")]
     [SerializeField] 
@@ -28,15 +29,20 @@ public class TurretScript : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating("FindTarget", 0f, 0.3f);
+        StartCoroutine(Shoot());
     }
 
     private void Update()
     {
+        LookAtTarget();
+    }
+
+    private void LookAtTarget()
+    {
         if (target != null)
         {
-            transform.LookAt(target);
-            StartCoroutine(Shoot(currentBarrelIndex));
+            Quaternion look = Quaternion.LookRotation(target.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, look, turnSpeed);
         }
     }
 
@@ -81,12 +87,10 @@ public class TurretScript : MonoBehaviour
 
     private IEnumerator Shoot()
     {
-        while (target != null)
+        while (true)
         {
-            yield return new WaitForSeconds(rechargeTime);
-
-            GameObject bullet = Instantiate(bulletPrefab, gunBarrel[currentBarrelIndex]);
-            bulletPrefab.transform.parent = null;
+            yield return new WaitUntil(() => target != null);
+            GameObject bullet = Instantiate(bulletPrefab, gunBarrel[currentBarrelIndex].position, Quaternion.identity);
 
             BulletScript bulletScript = bullet.GetComponent<bulletScript>();
             bulletScript.Target = target;
@@ -96,6 +100,7 @@ public class TurretScript : MonoBehaviour
             {
                 currentBarrelIndex = 0;
             }
+            yield return new WaitForSeconds(rechargeTime);
         }
     }
 
@@ -104,10 +109,6 @@ public class TurretScript : MonoBehaviour
         if (col.tag == "Enemy")
         {
             targetsInRange.Add(col.transform);
-            if (target == null)
-            {
-                StartCoroutine(Shoot());
-            }
         }
     }
 
