@@ -5741,6 +5741,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 2229015960522937226, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982114634582171909, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5005336
@@ -5780,6 +5788,18 @@ PrefabInstance:
     - target: {fileID: 5638224691656615950, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398341156975037626, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104844349566934165, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7889138912562309636, guid: 8a78eeb2500543249b441dca4d17ba2b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
