@@ -6,7 +6,7 @@ public class BuildSettings : MonoBehaviour
 {
     public GameObject structure { get; private set; }
 
-    public void StartBuild(GameObject[] scructures, int structIndex, float high)
+    public void StartBuild(GameObject[] scructures, int structIndex, float high, int cost, int index)
     {
         if (structure == null)
         {
